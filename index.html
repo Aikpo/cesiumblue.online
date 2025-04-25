@@ -1,130 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="description" content="Cesium Blue — A stunning matte galaxy-themed site, coming soon.">
-<meta name="robots" content="index, follow">
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Cesium Blue</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="favi.ico" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cesium Blue — A stunning matte galaxy-themed site, coming soon.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="favi.ico" type="image/x-icon">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root {
-      --bg: #121217;
-      --text: #d0d0dd;
-      --primary: #8cc6ff;
-      --accent: #b5aaff;
-    }
-
-    * {
+    body {
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
-      font-family: 'Inter', 'Segoe UI', sans-serif;
-      background-color: var(--bg);
-      overflow: hidden;
-      color: var(--text);
-    }
-
-    .stars {
-      position: absolute;
-      width: 200%;
-      height: 200%;
-      background-image: radial-gradient(var(--accent) 1px, transparent 1px);
-      background-size: 2px 2px;
-      animation: moveStars 100s linear infinite;
-      opacity: 0.2;
-      z-index: -1;
-    }
-
-    @keyframes moveStars {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(-50%, -50%); }
-    }
-
-    #loader {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: var(--bg);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      animation: fadeOut 2.5s ease 2.5s forwards;
-    }
-
-    .loader-text {
-      font-size: 2rem;
-      color: var(--primary);
-      letter-spacing: 3px;
-      opacity: 0.6;
-      animation: fadeInOut 2s ease-in-out infinite;
-    }
-
-    @keyframes fadeInOut {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 1; }
-    }
-
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-
-    .content {
-      opacity: 0;
-      height: 100%;
+      height: 100vh;
+      background: linear-gradient(135deg, #0d1b2a, #1b263b);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #e0e1dd;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      animation: fadeInUp 1.5s ease 2.8s forwards;
+      align-items: center;
     }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     h1 {
-      font-size: 3.5rem;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
+      font-size: 3rem;
+      margin-bottom: 2rem;
     }
-
-    p {
-      font-size: 1.3rem;
-      color: var(--text);
-      opacity: 0.7;
+    .social-icons {
+      position: absolute;
+      bottom: 2rem;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .social-icons a {
+      color: #e0e1dd;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      padding: 0.75rem;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .social-icons a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
+    .social-icons i {
+      font-size: 1.5rem;
     }
   </style>
 </head>
 <body>
-
-  <div class="stars"></div>
-
-  <!-- Loader -->
-  <div id="loader">
-    <div class="loader-text">Cesium Blue — Loading...</div>
+  <h1>Cesium Blue</h1>
+  <div class="social-icons">
+    <a href="https://www.youtube.com/yourchannel" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.instagram.com/yourusername" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://discord.gg/yourinvite" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
   </div>
-
-  <!-- Main Content -->
-  <div class="content">
-    <h1>Cesium Blue</h1>
-    <p>Coming Soon</p>
-  </div>
-
 </body>
 </html>
