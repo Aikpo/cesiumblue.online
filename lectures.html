@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cesium Blue - Chemistry Lectures</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Meta Tags -->
+  <meta name="description" content="Cesium Blue - Collection of the best chemistry lectures">
+  <meta name="keywords" content="chemistry lectures, science education, chemistry videos">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favi.ico" type="image/x-icon">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Styles -->
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0d1b2a, #1b263b);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #e0e1dd;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+    }
+
+    .return-button {
+      position: absolute;
+      left: 2rem;
+      top: 2rem;
+      color: #e0e1dd;
+      background-color: rgba(255, 255, 255, 0.08);
+      border-radius: 50px;
+      padding: 0.8rem 1.5rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.3s;
+    }
+
+    .return-button:hover {
+      transform: scale(1.05);
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .lectures-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .lecture-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .lecture-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .lecture-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .lecture-title i {
+      color: rgba(140, 198, 255, 0.7);
+    }
+
+    .lecture-source {
+      color: #a3b3c2;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .lecture-description {
+      font-size: 0.95rem;
+      color: #c1cad3;
+      line-height: 1.5;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .page-button {
+      color: #e0e1dd;
+      background-color: rgba(255, 255, 255, 0.08);
+      border: none;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      min-width: 40px;
+      text-align: center;
+    }
+
+    .page-button:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .page-button.active {
+      background-color: rgba(140, 198, 255, 0.3);
+    }
+
+    .page-button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      margin-top: auto;
+      color: #a3b3c2;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 1.5rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .return-button {
+        position: static;
+        margin: 0 auto 1rem;
+        justify-content: center;
+      }
+
+      .lectures-container {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="index.html" class="return-button">
+      <i class="fas fa-arrow-left"></i> Return to Main
+    </a>
+    <h1>Chemistry Lectures</h1>
+    <p>Curated collection of premium chemistry education</p>
+  </header>
+
+  <div class="lectures-container" id="lecturesContainer">
+    <!-- Filled by JavaScript -->
+  </div>
+
+  <div class="pagination">
+    <button class="page-button" id="prevButton" disabled>
+      <i class="fas fa-chevron-left"></i> Previous
+    </button>
+    <div id="pageNumbers"></div>
+    <button class="page-button" id="nextButton">
+      Next <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <footer>
+    <p>Educational content for academic purposes only</p>
+  </footer>
+
+  <script>
+    // Premium chemistry lectures data
+    const allLectures = [
+      {
+        title: "Introduction to Chemical Principles",
+        source: "MIT OpenCourseWare",
+        description: "Fundamental concepts of chemistry including matter and measurement, atoms and elements, stoichiometry, and chemical reactions.",
+        url: "https://www.youtube.com/watch?v=LQq203gyftA"
+      },
+      {
+        title: "Organic Chemistry Fundamentals",
+        source: "Khan Academy",
+        description: "Core principles of organic chemistry including structure and bonding, hybridization, resonance, and functional groups.",
+        url: "https://www.youtube.com/watch?v=UBY2X-f6Xqc"
+      },
+      {
+        title: "Quantum Chemistry Basics",
+        source: "UC Berkeley",
+        description: "Introduction to quantum mechanics in chemical systems, covering wavefunctions, orbitals, and the Schrödinger equation.",
+        url: "https://www.youtube.com/watch?v=2h0hU6Q9s2E"
+      },
+      {
+        title: "Chemical Thermodynamics",
+        source: "Stanford",
+        description: "First law of thermodynamics, enthalpy, thermochemistry, and applications to chemical systems.",
+        url: "https://www.youtube.com/watch?v=GqtUWyDRcfY"
+      },
+      {
+        title: "Biochemistry: Protein Structure",
+        source: "Harvard",
+        description: "Comprehensive look at protein folding, structural motifs, and their biological functions in biochemistry.",
+        url: "https://www.youtube.com/watch?v=dFQlV-IJqgQ"
+      },
+      {
+        title: "Periodic Table and Periodicity",
+        source: "University of Nottingham",
+        description: "Understanding the organization of the periodic table and periodic trends in element properties.",
+        url: "https://www.youtube.com/watch?v=0RRVV4Diomg"
+      },
+      {
+        title: "Chemical Bonding Theory",
+        source: "Yale",
+        description: "Detailed examination of ionic, covalent, and metallic bonding with molecular orbital theory.",
+        url: "https://www.youtube.com/watch?v=6aBVWv4yG8Y"
+      },
+      {
+        title: "Electrochemistry Principles",
+        source: "Oxford",
+        description: "Redox reactions, electrochemical cells, cell potentials, and applications in batteries and corrosion.",
+        url: "https://www.youtube.com/watch?v=YGQCHhCO9Qk"
+      },
+      {
+        title: "Organic Synthesis Techniques",
+        source: "Scripps Research",
+        description: "Modern organic synthesis methods including retrosynthetic analysis and catalytic processes.",
+        url: "https://www.youtube.com/watch?v=VZQaRqV4hx4"
+      },
+      {
+        title: "NMR Spectroscopy",
+        source: "Cambridge",
+        description: "Principles of nuclear magnetic resonance spectroscopy for structural determination in chemistry.",
+        url: "https://www.youtube.com/watch?v=1a8lsfFhJn0"
+      },
+      {
+        title: "Chemical Kinetics",
+        source: "Caltech",
+        description: "Reaction rates, rate laws, reaction mechanisms, and factors affecting chemical kinetics.",
+        url: "https://www.youtube.com/watch?v=ADQmn3wF9_c"
+      },
+      {
+        title: "Polymer Chemistry",
+        source: "ETH Zurich",
+        description: "Introduction to polymer science including synthesis, characterization, and material properties.",
+        url: "https://www.youtube.com/watch?v=6qJ6KXeXJqA"
+      },
+      {
+        title: "Inorganic Chemistry: Coordination Complexes",
+        source: "University of Tokyo",
+        description: "Chemistry of transition metal coordination complexes and crystal field theory.",
+        url: "https://www.youtube.com/watch?v=5miyPY8Wb2I"
+      },
+      {
+        title: "Spectroscopic Techniques",
+        source: "University of Chicago",
+        description: "UV-Vis, IR, and mass spectrometry methods for chemical analysis and structure determination.",
+        url: "https://www.youtube.com/watch?v=3gZb0s7ZPk8"
+      },
+      {
+        title: "Medicinal Chemistry Principles",
+        source: "Johns Hopkins",
+        description: "Drug discovery approaches, structure-activity relationships, and molecular design strategies.",
+        url: "https://www.youtube.com/watch?v=5j7_6J8GQQY"
+      }
+    ];
+
+    // Pagination setup
+    const lecturesPerPage = 8;
+    let currentPage = 1;
+    const totalPages = Math.ceil(allLectures.length / lecturesPerPage);
+    const lecturesContainer = document.getElementById('lecturesContainer');
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+    const pageNumbers = document.getElementById('pageNumbers');
+
+    // Display lectures for current page
+    function displayLectures(page) {
+      lecturesContainer.innerHTML = '';
+      const start = (page - 1) * lecturesPerPage;
+      const end = start + lecturesPerPage;
+      const lecturesToShow = allLectures.slice(start, end);
+
+      lecturesToShow.forEach(lecture => {
+        const card = document.createElement('a');
+        card.className = 'lecture-card';
+        card.href = lecture.url;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+        card.innerHTML = `
+          <h3 class="lecture-title">
+            <i class="fas fa-play-circle"></i> ${lecture.title}
+          </h3>
+          <div class="lecture-source">
+            <i class="fas fa-university"></i> ${lecture.source}
+          </div>
+          <p class="lecture-description">${lecture.description}</p>
+        `;
+        lecturesContainer.appendChild(card);
+      });
+    }
+
+    // Update pagination controls
+    function updatePagination() {
+      pageNumbers.innerHTML = '';
+      prevButton.disabled = currentPage === 1;
+      nextButton.disabled = currentPage === totalPages;
+
+      // Always show first page
+      const firstPageBtn = document.createElement('button');
+      firstPageBtn.className = `page-button ${1 === currentPage ? 'active' : ''}`;
+      firstPageBtn.textContent = '1';
+      firstPageBtn.addEventListener('click', () => goToPage(1));
+      pageNumbers.appendChild(firstPageBtn);
+
+      // Show current page and nearby pages
+      const startPage = Math.max(2, currentPage - 1);
+      const endPage = Math.min(totalPages - 1, currentPage + 1);
+
+      if (startPage > 2) {
+        const ellipsis = document.createElement('span');
+        ellipsis.textContent = '...';
+        ellipsis.style.padding = '0 0.5rem';
+        pageNumbers.appendChild(ellipsis);
+      }
+
+      for (let i = startPage; i <= endPage; i++) {
+        const pageBtn = document.createElement('button');
+        pageBtn.className = `page-button ${i === currentPage ? 'active' : ''}`;
+        pageBtn.textContent = i;
+        pageBtn.addEventListener('click', () => goToPage(i));
+        pageNumbers.appendChild(pageBtn);
+      }
+
+      if (endPage < totalPages - 1) {
+        const ellipsis = document.createElement('span');
+        ellipsis.textContent = '...';
+        ellipsis.style.padding = '0 0.5rem';
+        pageNumbers.appendChild(ellipsis);
+      }
+
+      // Always show last page if different from first
+      if (totalPages > 1) {
+        const lastPageBtn = document.createElement('button');
+        lastPageBtn.className = `page-button ${totalPages === currentPage ? 'active' : ''}`;
+        lastPageBtn.textContent = totalPages;
+        lastPageBtn.addEventListener('click', () => goToPage(totalPages));
+        pageNumbers.appendChild(lastPageBtn);
+      }
+    }
+
+    // Go to specific page
+    function goToPage(page) {
+      currentPage = page;
+      displayLectures(currentPage);
+      updatePagination();
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    // Event listeners
+    prevButton.addEventListener('click', () => {
+      if (currentPage > 1) {
+        goToPage(currentPage - 1);
+      }
+    });
+
+    nextButton.addEventListener('click', () => {
+      if (currentPage < totalPages) {
+        goToPage(currentPage + 1);
+      }
+    });
+
+    // Initial load
+    goToPage(1);
+  </script>
+</body>
+</html>
