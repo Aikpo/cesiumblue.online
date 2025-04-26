@@ -1,14 +1,18 @@
 /* TEAM */
-Owner: [Caesium]
+Owner: Cesium Blue Team
 Site: https://cesiumblue.online
-Contact: [swedesauce1@gmail.com]
+Contact: swedesauce1@gmail.com
+Location: UTC+4
+Twitter: @Cesium_Blue
+GitHub: CesiumBlue
 
 /* THANKS */
-Fonts: Font Awesome (https://fontawesome.com)
-Icons: Font Awesome (https://fontawesome.com)
-CSS: Normalize.css
+Fonts: Font Awesome 6
+Icons: Material Design Icons
+CSS Framework: Normalize.css
 
 /* SITE */
 Last update: 2025-04-26
-Standards: HTML5, CSS3
-Components: JavaScript, Web Vitals
+Standards: HTML5, CSS3, ECMAScript 2023
+Components: Web Components, Web Vitals
+License: MIT
