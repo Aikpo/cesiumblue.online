@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Cesium Blue</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- Basic Meta Tags -->
   <meta name="description" content="Cesium Blue — A stunning matte galaxy-themed site, coming soon.">
   <meta name="robots" content="index, follow">
@@ -18,7 +18,7 @@
   <meta property="og:url" content="https://cesiumblue.online/">
   <meta property="og:title" content="Cesium Blue — Chemistry, Science, and Innovation">
   <meta property="og:description" content="Cesium Blue — a stunning matte galaxy-themed site for science, chemistry enthusiasts, and tech lovers.">
-  <meta property="og:image" content="https://cesiumblue.online/favi.ico"> <!-- add full preview later -->
+  <meta property="og:image" content="https://cesiumblue.online/favi.ico">
 
   <!-- Twitter Meta Tags -->
   <meta property="twitter:card" content="summary_large_image">
@@ -42,41 +42,140 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
+      position: relative;
     }
+
     h1 {
       font-size: 3rem;
-      margin-bottom: 2rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+      text-align: center;
+      min-width: 240px;
     }
+
     .social-icons {
       position: absolute;
       bottom: 2rem;
       display: flex;
       gap: 1.5rem;
     }
-    .social-icons a {
-      color: #e0e1dd;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      padding: 0.75rem;
-      text-decoration: none;
-      transition: background-color 0.3s, transform 0.3s;
+
+    .lectures-container {
+      margin: 1rem 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
-    .social-icons a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+
+    .social-link, .lectures-button {
+      position: relative;
+      overflow: hidden;
+      color: #e0e1dd;
+      background-color: rgba(255, 255, 255, 0.08);
+      text-decoration: none;
+      transition: transform 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .social-link {
+      border-radius: 50%;
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+
+    .lectures-button {
+      border-radius: 50px;
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      min-width: 240px;
+    }
+
+    .social-link:hover, .lectures-button:hover {
       transform: scale(1.1);
     }
-    .social-icons i {
-      font-size: 1.5rem;
+
+    .social-link::after, .lectures-button::after {
+      content: "";
+      position: absolute;
+      top: var(--y, 50%);
+      left: var(--x, 50%);
+      transform: translate(-50%, -50%);
+      width: 0;
+      height: 0;
+      background: radial-gradient(circle, rgba(140,198,255,0.4) 0%, transparent 70%);
+      transition: width 0.2s ease, height 0.2s ease;
+      pointer-events: none;
+      border-radius: 50%;
+    }
+
+    .social-link:hover::after {
+      width: 100px;
+      height: 100px;
+    }
+
+    .lectures-button:hover::after {
+      width: 100px;
+      height: 100px;
+    }
+
+    .social-link i {
+      font-size: 1.6rem;
+      z-index: 1;
+      position: relative;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+        min-width: 200px;
+      }
+      .social-icons {
+        gap: 1rem;
+      }
+      .lectures-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+        min-width: 200px;
+      }
+      .social-link:hover::after,
+      .lectures-button:hover::after {
+        width: 80px;
+        height: 80px;
+      }
     }
   </style>
 </head>
 
 <body>
   <h1>Cesium Blue</h1>
-  <div class="social-icons">
-    <a href="https://youtube.com/@cesiumblue?si=rYCVtdSPG-HWEENS" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-    <a href="https://github.com/CesiumBlue" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    <a href="https://discord.gg/sx9v2J5uKV" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+  
+  <div class="lectures-container">
+    <a href="lectures.html" class="lectures-button">Lectures</a>
   </div>
+
+  <div class="social-icons">
+    <a href="https://youtube.com/@cesiumblue?si=rYCVtdSPG-HWEENS" target="_blank" aria-label="YouTube" class="social-link"><i class="fab fa-youtube"></i></a>
+    <a href="https://github.com/CesiumBlue" target="_blank" aria-label="GitHub" class="social-link"><i class="fab fa-github"></i></a>
+    <a href="https://discord.gg/sx9v2J5uKV" target="_blank" aria-label="Discord" class="social-link"><i class="fab fa-discord"></i></a>
+    <a href="https://x.com/Cesium_Blue" target="_blank" aria-label="X.com (Twitter)" class="social-link"><i class="fab fa-twitter"></i></a>
+  </div>
+
+  <!-- Mouse Tracking Script -->
+  <script>
+    document.addEventListener('mousemove', function(e) {
+      document.querySelectorAll('.social-link, .lectures-button').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        el.style.setProperty('--x', `${x}px`);
+        el.style.setProperty('--y', `${y}px`);
+      });
+    });
+  </script>
 </body>
 </html>
