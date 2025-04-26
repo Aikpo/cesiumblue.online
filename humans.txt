@@ -1,0 +1,14 @@
+/* TEAM */
+Owner: [Caesium]
+Site: https://cesiumblue.online
+Contact: [swedesauce1@gmail.com]
+
+/* THANKS */
+Fonts: Font Awesome (https://fontawesome.com)
+Icons: Font Awesome (https://fontawesome.com)
+CSS: Normalize.css
+
+/* SITE */
+Last update: 2025-04-26
+Standards: HTML5, CSS3
+Components: JavaScript, Web Vitals
