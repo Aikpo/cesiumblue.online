@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Cesium Blue</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Basic Meta Tags -->
-  <meta name="description" content="Cesium Blue — A stunning matte galaxy-themed site, coming soon.">
+  <meta name="description"
+    content="Cesium Blue — A modern platform dedicated to in-depth chemistry lessons, lectures, and scientific exploration.">
   <meta name="robots" content="index, follow">
-  <meta name="keywords" content="cesium, cesium element, cesium blue, chemistry, science, chemical elements, periodic table, cesium metal, buy chemicals, lab equipment, atomic elements, scientific research, chemistry experiments, chemical reactions, technology, innovation, laboratory science">
+  <meta name="keywords"
+    content="chemistry, chemical lectures, scientific education, chemistry lessons, in-depth chemistry, advanced chemistry, chemistry learning, science education, periodic table, chemical reactions, laboratory science, molecular chemistry, atomic structure, scientific research, university chemistry, chemical elements">
 
   <!-- Favicon -->
-  <link rel="icon" href="favi.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.png" type="image/x-icon">
 
   <!-- Open Graph / Facebook / Discord -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cesiumblue.online/">
-  <meta property="og:title" content="Cesium Blue — Chemistry, Science, and Innovation">
-  <meta property="og:description" content="Cesium Blue — a stunning matte galaxy-themed site for science, chemistry enthusiasts, and tech lovers.">
-  <meta property="og:image" content="https://cesiumblue.online/favi.ico">
+  <meta property="og:title" content="Cesium Blue — In-depth Chemistry Lessons and Lectures">
+  <meta property="og:description"
+    content="Explore advanced chemistry topics with Cesium Blue. High-quality lectures, lessons, and scientific content for curious minds.">
+  <meta property="og:image" content="https://cesiumblue.online/favicon.png">
 
   <!-- Twitter Meta Tags -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://cesiumblue.online/">
-  <meta property="twitter:title" content="Cesium Blue — Chemistry, Science, and Innovation">
-  <meta property="twitter:description" content="Cesium Blue — a stunning matte galaxy-themed site for science, chemistry enthusiasts, and tech lovers.">
-  <meta property="twitter:image" content="https://cesiumblue.online/favi.ico">
+  <meta property="twitter:title" content="Cesium Blue — In-depth Chemistry Lessons and Lectures">
+  <meta property="twitter:description"
+    content="Explore advanced chemistry topics with Cesium Blue. High-quality lectures, lessons, and scientific content for curious minds.">
+  <meta property="twitter:image" content="https://cesiumblue.online/favicon.png">
+
 
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -68,7 +74,8 @@
       justify-content: center;
     }
 
-    .social-link, .lectures-button {
+    .social-link,
+    .lectures-button {
       position: relative;
       overflow: hidden;
       color: #e0e1dd;
@@ -95,11 +102,13 @@
       min-width: 240px;
     }
 
-    .social-link:hover, .lectures-button:hover {
+    .social-link:hover,
+    .lectures-button:hover {
       transform: scale(1.1);
     }
 
-    .social-link::after, .lectures-button::after {
+    .social-link::after,
+    .lectures-button::after {
       content: "";
       position: absolute;
       top: var(--y, 50%);
@@ -107,7 +116,7 @@
       transform: translate(-50%, -50%);
       width: 0;
       height: 0;
-      background: radial-gradient(circle, rgba(140,198,255,0.4) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(140, 198, 255, 0.4) 0%, transparent 70%);
       transition: width 0.2s ease, height 0.2s ease;
       pointer-events: none;
       border-radius: 50%;
@@ -134,14 +143,17 @@
         font-size: 2rem;
         min-width: 200px;
       }
+
       .social-icons {
         gap: 1rem;
       }
+
       .lectures-button {
         padding: 0.7rem 1.5rem;
         font-size: 1rem;
         min-width: 200px;
       }
+
       .social-link:hover::after,
       .lectures-button:hover::after {
         width: 80px;
@@ -153,21 +165,25 @@
 
 <body>
   <h1>Cesium Blue</h1>
-  
+
   <div class="lectures-container">
     <a href="lectures.html" class="lectures-button">Lectures</a>
   </div>
 
   <div class="social-icons">
-    <a href="https://youtube.com/@cesiumblue?si=rYCVtdSPG-HWEENS" target="_blank" aria-label="YouTube" class="social-link"><i class="fab fa-youtube"></i></a>
-    <a href="https://github.com/CesiumBlue" target="_blank" aria-label="GitHub" class="social-link"><i class="fab fa-github"></i></a>
-    <a href="https://discord.gg/sx9v2J5uKV" target="_blank" aria-label="Discord" class="social-link"><i class="fab fa-discord"></i></a>
-    <a href="https://x.com/Cesium_Blue" target="_blank" aria-label="X.com (Twitter)" class="social-link"><i class="fab fa-twitter"></i></a>
+    <a href="https://youtube.com/@cesiumblue?si=rYCVtdSPG-HWEENS" target="_blank" aria-label="YouTube"
+      class="social-link"><i class="fab fa-youtube"></i></a>
+    <a href="https://github.com/CesiumBlue" target="_blank" aria-label="GitHub" class="social-link"><i
+        class="fab fa-github"></i></a>
+    <a href="https://discord.gg/sx9v2J5uKV" target="_blank" aria-label="Discord" class="social-link"><i
+        class="fab fa-discord"></i></a>
+    <a href="https://x.com/Cesium_Blue" target="_blank" aria-label="X.com (Twitter)" class="social-link"><i
+        class="fab fa-twitter"></i></a>
   </div>
 
   <!-- Mouse Tracking Script -->
   <script>
-    document.addEventListener('mousemove', function(e) {
+    document.addEventListener('mousemove', function (e) {
       document.querySelectorAll('.social-link, .lectures-button').forEach(el => {
         const rect = el.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -178,4 +194,5 @@
     });
   </script>
 </body>
+
 </html>
